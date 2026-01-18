@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Mechanic Shop Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">Car Mechanic Shop</h1>
+                <div class="header-profile">
+                    <div class="profile-icon">👤</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="🔍 Search jobs, customers...">
+            </div>
+
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <p class="stat-title">Active Jobs</p>
+                    <p class="stat-number">12</p>
+                    <p class="stat-detail">in progress</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Completed Today</p>
+                    <p class="stat-number">5</p>
+                    <p class="stat-detail">this week</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Revenue</p>
+                    <p class="stat-number">$2,450</p>
+                    <p class="stat-detail">total earned</p>
+                </div>
+            </section>
+
+            <!-- Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="nav-btn active" onclick="switchTab('jobs')">Jobs</button>
+                <button class="nav-btn" onclick="switchTab('tasks')">Tasks</button>
+                <button class="nav-btn" onclick="switchTab('customers')">Customers</button>
+                <button class="nav-btn" onclick="switchTab('staff')">Staff</button>
+                <button class="nav-btn" onclick="switchTab('parts')">Parts</button>
+                <button class="nav-btn" onclick="switchTab('payments')">Payments</button>
+            </nav>
+
+            <!-- Active Jobs Section -->
+            <section class="jobs-section" id="jobs">
+                <h2 class="section-title">Active Jobs</h2>
+                <div class="jobs-list">
+                    <div class="job-card">
+                        <div class="job-card-left">
+                            <p class="job-id">JOB-001</p>
+                            <p class="job-customer">Customer: Fred Banks</p>
+                            <p class="job-car">Car: Ford Escape | Red | QFW678</p>
+                            <p class="job-time">Started 2 hours ago</p>
+                        </div>
+                        <div class="job-card-right">
+                            <span class="status-badge status-in-progress">In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-card-left">
+                            <p class="job-id">JOB-002</p>
+                            <p class="job-customer">Customer: Nicholas Ramos</p>
+                            <p class="job-car">Car: Kia Optima | Blue | YON489</p>
+                            <p class="job-time">Started 5 hours ago</p>
+                        </div>
+                        <div class="job-card-right">
+                            <span class="status-badge status-pending">Pending</span>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-card-left">
+                            <p class="job-id">JOB-003</p>
+                            <p class="job-customer">Customer: Anne Hansen</p>
+                            <p class="job-car">Car: Toyota Corolla | White | IPO436</p>
+                            <p class="job-time">Started 1 hour ago</p>
+                        </div>
+                        <div class="job-card-right">
+                            <span class="status-badge status-in-progress">In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-card-left">
+                            <p class="job-id">JOB-004</p>
+                            <p class="job-customer">Customer: Douglas Mendoza</p>
+                            <p class="job-car">Car: Toyota Hilux | Silver | No Plate</p>
+                            <p class="job-time">Started 4 hours ago</p>
+                        </div>
+                        <div class="job-card-right">
+                            <span class="status-badge status-in-progress">In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-card-left">
+                            <p class="job-id">JOB-005</p>
+                            <p class="job-customer">Customer: Bonnie Lawson</p>
+                            <p class="job-car">Car: Holden Captiva | Yellow | MJA758</p>
+                            <p class="job-time">Started 3 hours ago</p>
+                        </div>
+                        <div class="job-card-right">
+                            <span class="status-badge status-pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section class="tasks-section hidden" id="tasks">
+                <h2 class="section-title">Task Management</h2>
+                <div class="filter-bar">
+                    <select class="filter-dropdown">
+                        <option>Filter by Job: All</option>
+                        <option>JOB-001</option>
+                        <option>JOB-002</option>
+                    </select>
+                    <select class="filter-dropdown">
+                        <option>Status: All</option>
+                        <option>Completed</option>
+                        <option>In Progress</option>
+                    </select>
+                    <button class="btn btn-primary">+ Add Task</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Job ID</th>
+                            <th>Description</th>
+                            <th>Assigned Staff</th>
+                            <th>Time Spent</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>JOB-001</td>
+                            <td>Replace Oil</td>
+                            <td>Carol Ross</td>
+                            <td>60 min</td>
+                            <td><span class="status-badge status-completed">✓ Completed</span></td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>JOB-001</td>
+                            <td>Replace Wiper</td>
+                            <td>Carol Ross</td>
+                            <td>20 min</td>
+                            <td><span class="status-badge status-completed">✓ Completed</span></td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>JOB-001</td>
+                            <td>Clean Air Intake</td>
+                            <td>Antonio Price</td>
+                            <td>10 min</td>
+                            <td><span class="status-badge status-in-progress">⏳ In Progress</span></td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Customers Section -->
+            <section class="customers-section hidden" id="customers">
+                <h2 class="section-title">Customer Management</h2>
+                <div class="section-header">
+                    <input type="text" class="search-bar" placeholder="Search customers...">
+                    <button class="btn btn-primary">+ Add Customer</button>
+                </div>
+                <div class="customer-cards">
+                    <div class="customer-card">
+                        <div class="card-header">
+                            <h3>Fred Banks</h3>
+                            <p class="phone">479003848</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="address">3134 Hudson Lane</p>
+                            <p class="cars">3 cars</p>
+                            <p class="jobs">5 completed jobs</p>
+                            <p class="last-job">Last: May 14, 2016</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small">Edit</button>
+                            <button class="btn btn-small btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="customer-card">
+                        <div class="card-header">
+                            <h3>Nicholas Ramos</h3>
+                            <p class="phone">054039485</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="address">9 Washington Center</p>
+                            <p class="cars">1 car</p>
+                            <p class="jobs">3 completed jobs</p>
+                            <p class="last-job">Last: Jun 20, 2016</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small">Edit</button>
+                            <button class="btn btn-small btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="customer-card">
+                        <div class="card-header">
+                            <h3>Anne Hansen</h3>
+                            <p class="phone">071747036</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="address">8604 Burrows Pass</p>
+                            <p class="cars">1 car</p>
+                            <p class="jobs">2 completed jobs</p>
+                            <p class="last-job">Last: Jun 24, 2016</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small">Edit</button>
+                            <button class="btn btn-small btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff Section -->
+            <section class="staff-section hidden" id="staff">
+                <h2 class="section-title">Staff Management</h2>
+                <div class="section-header">
+                    <input type="text" class="search-bar" placeholder="Search staff...">
+                    <button class="btn btn-primary">+ Add Staff</button>
+                </div>
+                <div class="staff-cards">
+                    <div class="staff-card">
+                        <div class="card-header">
+                            <h3>Carol Ross</h3>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="address">190 Delaware Drive</p>
+                            <p class="phone">127409657</p>
+                            <p class="tasks">Current Tasks: 3 active</p>
+                            <p class="hours">Total Hours This Month: 45.5h</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small">Edit</button>
+                            <button class="btn btn-small btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="card-header">
+                            <h3>Antonio Price</h3>
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="address">89196 Dorton Plaza</p>
+                            <p class="phone">275658221</p>
+                            <p class="tasks">Current Tasks: 2 active</p>
+                            <p class="hours">Total Hours This Month: 32.0h</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-small">View</button>
+                            <button class="btn btn-small">Edit</button>
+                            <button class="btn btn-small btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parts Section -->
+            <section class="parts-section hidden" id="parts">
+                <h2 class="section-title">Parts Inventory</h2>
+                <div class="section-header">
+                    <input type="text" class="search-bar" placeholder="Search parts...">
+                    <select class="filter-dropdown">
+                        <option>Category: All</option>
+                        <option>Engine Oil</option>
+                        <option>Filters</option>
+                    </select>
+                    <button class="btn btn-primary">+ Add Part</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Part ID</th>
+                            <th>Part Name</th>
+                            <th>Price</th>
+                            <th>Stock Status</th>
+                            <th>Usage Count</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>91</td>
+                            <td>Nulon Hi-Tech Engine Oil</td>
+                            <td>$51.14</td>
+                            <td><span class="status-badge status-in-stock">In Stock</span></td>
+                            <td>1</td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>57</td>
+                            <td>Ryco Oil Filter - Z436</td>
+                            <td>$12.36</td>
+                            <td><span class="status-badge status-in-stock">In Stock</span></td>
+                            <td>5</td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>60</td>
+                            <td>K&N Air Filter - 33-2438</td>
+                            <td>$84.25</td>
+                            <td><span class="status-badge status-low-stock">Low Stock</span></td>
+                            <td>2</td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Payments Section -->
+            <section class="payments-section hidden" id="payments">
+                <h2 class="section-title">Payment Management</h2>
+                <div class="filter-bar">
+                    <select class="filter-dropdown">
+                        <option>Date Range: This Month</option>
+                        <option>Last Week</option>
+                        <option>Last Month</option>
+                    </select>
+                    <select class="filter-dropdown">
+                        <option>Status: All</option>
+                        <option>Paid</option>
+                        <option>Pending</option>
+                    </select>
+                    <input type="text" class="search-bar" placeholder="Search by Job ID...">
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Job ID</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>JOB-001</td>
+                            <td>Fred Banks</td>
+                            <td>$304.93</td>
+                            <td>May 11, 2016</td>
+                            <td><span class="status-badge status-paid">✓ Paid</span></td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>JOB-007</td>
+                            <td>Steven Rivera</td>
+                            <td>$1,054.00</td>
+                            <td>Jun 17, 2016</td>
+                            <td><span class="status-badge status-pending">⏳ Pending</span></td>
+                            <td><button class="btn btn-small">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
